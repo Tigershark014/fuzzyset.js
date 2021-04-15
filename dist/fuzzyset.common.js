@@ -50,7 +50,7 @@ const FuzzySet = function(arr, useLevenshtein, gramSizeLower, gramSizeUpper) {
             return 1 - distance / str2.length;
         }
     };
-    var _nonWordRe = /[^a-zA-Z0-9\u00C0-\u00FF, ]+/g;
+    var _nonWordRe = /[^\p{L}\p{N}, ]+/gu;
 
     var _iterateGrams = function(value, gramSize) {
         gramSize = gramSize || 2;
