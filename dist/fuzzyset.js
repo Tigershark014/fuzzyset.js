@@ -51,8 +51,8 @@ var FuzzySet = (function () {
               return 1 - distance / str2.length;
           }
       };
-      var _nonWordRe = /[^a-zA-Z0-9\u00C0-\u00FF, ]+/g;
-
+      var _nonWordRe = /[^\p{L}\p{N}, ]+/gu;
+    
       var _iterateGrams = function(value, gramSize) {
           gramSize = gramSize || 2;
           var simplified = '-' + value.toLowerCase().replace(_nonWordRe, '') + '-',
